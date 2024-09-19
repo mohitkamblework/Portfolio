@@ -1,8 +1,12 @@
-// pages/index.js
 import Head from 'next/head';
+import Header from '../components/header';
+import Footer from '../components/footer';
 import Image from 'next/image';
+import { useMediaQuery, Typography, Button } from '@mui/material';
 
 export default function Home() {
+  const isMobile = useMediaQuery('(max-width: 768px)');
+
   return (
     <div className="min-h-screen bg-gray-50 text-gray-800">
       <Head>
@@ -11,45 +15,60 @@ export default function Home() {
         <link rel="icon" href="/favicon.ico" />
       </Head>
 
-      {/* Header */}
-      <header className="bg-white shadow-lg p-4 fixed w-full top-0 z-10">
-        <div className="max-w-7xl mx-auto flex justify-between items-center">
-          <h1 className="text-2xl font-bold">Mohit Ravindra Kamble</h1>
-          <nav className="space-x-6">
-            <a href="https://github.com/mohitkamblework" className="text-blue-600 hover:underline">GitHub</a>
-            <a href="https://linkedin.com/in/mohitravindrakamble" className="text-blue-600 hover:underline">LinkedIn</a>
-            <a href="https://public.tableau.com/profile/mohit.kamble" className="text-blue-600 hover:underline">Tableau</a>
-          </nav>
-        </div>
-      </header>
+      <Header />
 
-      <main className="mt-16">
+      <main className={`mt-16 ${isMobile ? 'px-4' : 'px-6'}`}>
         {/* Hero Section */}
         <section className="bg-white py-12">
-          <div className="max-w-7xl mx-auto px-6 text-center">
+          <div className={`max-w-7xl mx-auto ${isMobile ? 'text-center' : 'px-6'}`}>
             <Image
               src="/IMG_2466.jpeg"
               alt="Mohit Ravindra Kamble"
-              width={200}
-              height={200}
+              width={isMobile ? 150 : 200}
+              height={isMobile ? 150 : 200}
               className="mx-auto rounded-full"
             />
-            <h2 className="text-4xl font-semibold text-gray-800 mt-6">Hello, I'm Mohit Ravindra Kamble</h2>
-            <p className="mt-4 text-lg text-gray-600">I am a Data Analyst passionate about transforming data into actionable insights.</p>
+            <h2 className={`mt-6 ${isMobile ? 'text-3xl' : 'text-4xl'} font-semibold text-gray-800`}>
+              Hello, I'm Mohit Ravindra Kamble
+            </h2>
+            <p className={`mt-4 ${isMobile ? 'text-md' : 'text-lg'} text-gray-600`}>
+              I am a Data Analyst passionate about transforming data into actionable insights.
+            </p>
             <div className="mt-6">
-              <a href="https://linkedin.com/in/mohitravindrakamble" className="px-6 py-3 bg-blue-600 text-white rounded-lg hover:bg-blue-700">Contact Me</a>
+              <Button
+                variant="text"
+                color="primary"
+                href="https://linkedin.com/in/mohitravindrakamble"
+                target="_blank"
+              >
+                Contact Me
+              </Button>
             </div>
+          </div>
+        </section>
+
+        {/* Skills Section */}
+        <section className="bg-gradient-to-r from-purple-400 via-pink-500 to-red-500 py-12">
+          <div className="max-w-7xl mx-auto text-center">
+            <Typography variant="h3" style={{ fontWeight: 'bold', color: '#fff' }}>
+              Python, SQL, Tableau
+            </Typography>
+            <Typography variant="h5" style={{ color: '#fff', marginTop: '10px' }}>
+              The pillars of my data analysis toolkit
+            </Typography>
           </div>
         </section>
 
         {/* Work Experience Section */}
         <section className="bg-gray-50 py-12">
-          <div className="max-w-7xl mx-auto px-6">
-            <h2 className="text-3xl font-semibold text-gray-800 mb-8">Work Experience</h2>
+          <div className="max-w-7xl mx-auto">
+            <h2 className={`text-3xl font-semibold text-gray-800 mb-8 ${isMobile ? 'text-center' : ''}`}>
+              Work Experience
+            </h2>
             <div className="bg-white p-6 shadow-md rounded-lg">
               <h3 className="text-xl font-bold">Software Engineer, Cognizant</h3>
               <p className="mt-2 text-gray-600">December 2021 - August 2023</p>
-              <ul className="list-disc pl-5 mt-4 text-gray-600">
+              <ul className={`list-disc pl-5 mt-4 text-gray-600 ${isMobile ? 'pl-3' : 'pl-5'}`}>
                 <li>Applied advanced statistical techniques to analyze clinical and operational datasets.</li>
                 <li>Created interactive dashboards in Excel, Tableau, and Power BI, improving decision-making processes by 30%.</li>
                 <li>Designed & deployed machine learning models to forecast drug demand, optimizing inventory management.</li>
@@ -149,20 +168,24 @@ export default function Home() {
 
         {/* Contact Section */}
         <section className="bg-gray-50 py-12">
-          <div className="max-w-7xl mx-auto px-6 text-center">
+          <div className="max-w-7xl mx-auto text-center">
             <h2 className="text-3xl font-semibold text-gray-800 mb-4">Contact Me</h2>
             <p className="text-lg text-gray-600">Feel free to reach out to discuss data analysis or any potential collaborations!</p>
             <div className="mt-6">
-              <a href="mailto:kamble.mo@northeastern.edu" className="px-6 py-3 bg-blue-600 text-white rounded-lg hover:bg-blue-700">Email Me</a>
+              <Button
+                variant="text"
+                color="primary"
+                href="mailto:kamble.mo@northeastern.edu"
+                style={{ padding: '10px 20px' }}
+              >
+                Email Me
+              </Button>
             </div>
           </div>
         </section>
       </main>
 
-      {/* Footer */}
-      <footer className="bg-white py-6 text-center">
-        <p className="text-gray-600">&copy; 2024 Mohit Ravindra Kamble. All rights reserved.</p>
-      </footer>
+      <Footer />
     </div>
   );
 }
