@@ -2,7 +2,7 @@ import Head from 'next/head';
 import Header from '../components/header';
 import Footer from '../components/footer';
 import Image from 'next/image';
-import { useMediaQuery, Typography, Button } from '@mui/material';
+import { useMediaQuery, Typography, Button, Box, Item } from '@mui/material';
 
 export default function Home() {
   const isMobile = useMediaQuery('(max-width: 768px)');
@@ -21,34 +21,47 @@ export default function Home() {
         {/* Hero Section */}
         <section className="bg-white py-12">
           <div className={`max-w-7xl mx-auto ${isMobile ? 'text-center' : 'px-6'}`}>
+          <Box
+            sx={{
+              display: 'flex',
+              justifyContent: 'space-around',
+              p: 1,
+              m: 1,
+              bgcolor: 'background.paper',
+              borderRadius: 1,
+            }}
+          >
             <Image
               src="/IMG_2466.jpeg"
               alt="Mohit Ravindra Kamble"
-              width={isMobile ? 150 : 200}
-              height={isMobile ? 150 : 200}
-              className="mx-auto rounded-full"
+              width={isMobile ? 500 : 500}
+              height={isMobile ? 500 : 500}
+              className=""
             />
-            <h2 className={`mt-6 ${isMobile ? 'text-3xl' : 'text-4xl'} font-semibold text-gray-800`}>
-              Hello, I'm Mohit Ravindra Kamble
-            </h2>
-            <p className={`mt-4 ${isMobile ? 'text-md' : 'text-lg'} text-gray-600`}>
-              I am a Data Analyst passionate about transforming data into actionable insights.
-            </p>
-            <div className="mt-6">
-              <Button
-                variant="text"
-                color="primary"
-                href="https://linkedin.com/in/mohitravindrakamble"
-                target="_blank"
-              >
-                Contact Me
-              </Button>
+            <div className='ml-12 pl-12 text-justify'>
+              <p className={`mt-6 ${isMobile ? 'text-md' : 'text-lg'} text-gray-800`}>
+              Hello, I’m Mohit Ravindra Kamble, an experienced data analyst with a proven track record at Cognizant,
+              where I delivered data-driven solutions to enhance business performance and optimize marketing campaigns.
+              Currently pursuing a Master’s in Analytics at Northeastern University, I am expanding my expertise in
+              data analysis, big data, and marketing analytics.
+              </p>
+              <p className={`mt-6 ${isMobile ? 'text-md' : 'text-lg'} text-gray-800`}>
+              Alongside my studies, I volunteer as the Head of Marketing and Communications for Boston New Technology (BNT),
+              where I lead marketing campaigns and develop strategies to increase brand visibility, using data-driven insights
+              to optimize performance. Proficient in Python, SQL, Tableau, and Power BI, I specialize in turning complex data
+              into actionable insights that support decision-making and business growth. My blend of technical skills and
+              leadership experience allows me to deliver impactful solutions and foster innovation.
+              </p>
             </div>
+            
+          </Box>
+            
+            
           </div>
         </section>
 
         {/* Skills Section */}
-        <section className="bg-gradient-to-r from-purple-400 via-pink-500 to-red-500 py-12">
+        {/* <section className="bg-gradient-to-r from-purple-400 via-pink-500 to-red-500 py-12">
           <div className="max-w-7xl mx-auto text-center">
             <Typography variant="h3" style={{ fontWeight: 'bold', color: '#fff' }}>
               Python, SQL, Tableau
@@ -57,7 +70,7 @@ export default function Home() {
               The pillars of my data analysis toolkit
             </Typography>
           </div>
-        </section>
+        </section> */}
 
         {/* Work Experience Section */}
         <section className="bg-gray-50 py-12">
@@ -69,11 +82,11 @@ export default function Home() {
               <h3 className="text-xl font-bold">Software Engineer, Cognizant</h3>
               <p className="mt-2 text-gray-600">December 2021 - August 2023</p>
               <ul className={`list-disc pl-5 mt-4 text-gray-600 ${isMobile ? 'pl-3' : 'pl-5'}`}>
-                <li>Applied advanced statistical techniques to analyze clinical and operational datasets.</li>
-                <li>Created interactive dashboards in Excel, Tableau, and Power BI, improving decision-making processes by 30%.</li>
-                <li>Designed & deployed machine learning models to forecast drug demand, optimizing inventory management.</li>
-                <li>Collaborated with R&D, sales & operations teams to address challenges in drug development timelines and regulatory compliance.</li>
-                <li>Produced high-quality data pipelines supporting clinical trials and regulatory submissions.</li>
+                <li>Developed a Tableau dashboard for comparative analysis of a new website and a legacy version, significantly enhancing user engagement. </li>
+                <li>Analyzed product performance and forecasted sales, providing insights to executives that improved marketing campaign effectiveness.</li>
+                <li>Utilized Oracle Database and Alteryx to design efficient ETL pipelines, streamlining data extraction and enhancing accuracy.</li>
+                <li>Created a Python-based data pipeline to export data from Oracle to Google BigQuery, improving data accessibility for analysis.</li>
+                <li>Automated Power BI dashboards for daily campaign updates, enhancing real-time visibility and streamlining reporting processes.</li>
               </ul>
             </div>
           </div>
@@ -87,9 +100,10 @@ export default function Home() {
               <h3 className="text-xl font-bold">Head of Marketing & Communications, Boston New Technology</h3>
               <p className="mt-2 text-gray-600">December 2023 - Present</p>
               <ul className="list-disc pl-5 mt-4 text-gray-600">
-                <li>Implemented integrated marketing initiatives across traditional and digital platforms.</li>
-                <li>Increased brand awareness and leads by 25% through strategic communication campaigns.</li>
-                <li>Conducted market research to enhance marketing strategies.</li>
+                <li>Leading integrated marketing campaigns using Mailchimp, Zoho, and Sprout Social to enhance brand awareness.</li>
+                <li>Implementing optimized email and SMS strategies, conducting market research to inform content distribution.</li>
+                <li>Collaborating with cross-functional teams to align marketing initiatives with organizational goals.</li>
+                <li>Monitoring campaign performance and adjusting strategies to maximize outreach and effectiveness.</li>
               </ul>
             </div>
           </div>
@@ -101,16 +115,28 @@ export default function Home() {
             <h2 className="text-3xl font-semibold text-gray-800 mb-8">Skills & Certifications</h2>
             <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-6">
               <div className="bg-white p-6 shadow-md rounded-lg">
-                <h3 className="text-xl font-bold">Data Analysis & Visualization</h3>
-                <p className="mt-2 text-gray-600">Tableau, Power BI, Qlik, MySQL, PostgreSQL</p>
+                <h3 className="text-xl font-bold">Data Tools</h3>
+                <p className="mt-2 text-gray-600">Tableau, Power BI, Oracle Database, Google BigQuery, Google Analytics, Apache Spark, Alteryx.</p>
               </div>
               <div className="bg-white p-6 shadow-md rounded-lg">
-                <h3 className="text-xl font-bold">Programming</h3>
-                <p className="mt-2 text-gray-600">Python, SQL, R, VBA, Alteryx</p>
+                <h3 className="text-xl font-bold">Database Management</h3>
+                <p className="mt-2 text-gray-600">Oracle Database, Google BigQuery.</p>
+              </div>
+              <div className="bg-white p-6 shadow-md rounded-lg">
+                <h3 className="text-xl font-bold">Programming & APIs</h3>
+                <p className="mt-2 text-gray-600">Python, SQL, VBA, Listrak API, Google Analytics API.</p>
+              </div>
+              <div className="bg-white p-6 shadow-md rounded-lg">
+                <h3 className="text-xl font-bold">Marketing Tools</h3>
+                <p className="mt-2 text-gray-600">Mailchimp, Sprout Social, Listrak, Google Analytics, Campaign Optimization Strategies.</p>
               </div>
               <div className="bg-white p-6 shadow-md rounded-lg">
                 <h3 className="text-xl font-bold">Certifications</h3>
-                <p className="mt-2 text-gray-600">Tableau Desktop Specialist, Data Management Professional</p>
+                <p className="mt-2 text-gray-600">Tableau Desktop Specialist, Oracle Business Intelligence, Microsoft Azure Fundamentals</p>
+              </div>
+              <div className="bg-white p-6 shadow-md rounded-lg">
+                <h3 className="text-xl font-bold">Soft Skills</h3>
+                <p className="mt-2 text-gray-600">Leadership, Cultural Intelligence, Problem Solving, Attention to Detail, Networking, Creative Writing</p>
               </div>
             </div>
           </div>
@@ -122,9 +148,9 @@ export default function Home() {
             <h2 className="text-3xl font-semibold text-gray-800 mb-8">Projects</h2>
             <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-6">
               <div className="bg-gray-50 p-6 shadow-md rounded-lg">
-                <h3 className="text-xl font-bold">Drug Demand Forecasting</h3>
-                <p className="mt-2 text-gray-600">
-                  Built machine learning models to forecast drug demand, improving inventory management.
+                <h3 className="text-xl font-bold">Ad Videos Sentiment Analysis</h3>
+                <p className="mt-2 text-gray-600 text-justify">
+                This project is based on Logistic Regression and TF-IDF vectorization techniques for sentiment analysis of advertisement videos.
                 </p>
               </div>
               <div className="bg-gray-50 p-6 shadow-md rounded-lg">
@@ -169,18 +195,8 @@ export default function Home() {
         {/* Contact Section */}
         <section className="bg-gray-50 py-12">
           <div className="max-w-7xl mx-auto text-center">
-            <h2 className="text-3xl font-semibold text-gray-800 mb-4">Contact Me</h2>
-            <p className="text-lg text-gray-600">Feel free to reach out to discuss data analysis or any potential collaborations!</p>
-            <div className="mt-6">
-              <Button
-                variant="text"
-                color="primary"
-                href="mailto:kamble.mo@northeastern.edu"
-                style={{ padding: '10px 20px' }}
-              >
-                Email Me
-              </Button>
-            </div>
+            <h2 className="text-3xl font-semibold text-gray-800 mb-4">Get in Touch</h2>
+            <p className="text-lg text-gray-600">I welcome the opportunity to connect and explore innovative data analysis solutions or potential collaborations!</p>
           </div>
         </section>
       </main>
