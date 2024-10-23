@@ -6,10 +6,10 @@ const Header = () => {
 
   return (
     <header className="bg-white shadow-lg p-4 fixed w-full top-0 z-10 flex justify-between items-center">
-      <div className="flex items-center mx-auto">
+      <div className="flex">
         {/* Clean MRK Logo (No Square Outline) */}
       
-        <h1 className={` ${isMobile ? "text-xl" : "text-2xl"} font-bold`}>
+        <h1 className={` ${isMobile ? "text-xl" : "text-4xl"} font-bold`}>
           Mohit Ravindra Kamble
         </h1>
       </div>
@@ -24,6 +24,9 @@ const Header = () => {
         </Button>
         <Button href="https://public.tableau.com/profile/mohit.kamble" target="_blank" className="hover:underline">
           Tableau
+        </Button>
+        <Button variant="outlined" href={"/Mohit_Ravindra_Kamble.pdf"} target="_blank" className="hover:underline">
+          Resume
         </Button>
       </nav>
     </header>

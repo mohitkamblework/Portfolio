@@ -11,6 +11,9 @@ const Footer = () => {
       </div>
 
       <div className="mt-4">
+      <Button href="mailto:kamble.mo@northeastern.edu" target="_blank" className="hover:underline">
+          Email Me
+        </Button>
         <Button href="https://github.com/mohitkamblework" target="_blank" className="hover:underline">
           GitHub
         </Button>
